@@ -23,4 +23,5 @@ def notas(*valores, sit=False):
 
 r = notas(7, 5, 5, sit=True)
 print(r)
-help(notas)
+#help(notas)
+print("\033[1;32mFim do programa\033[m")
