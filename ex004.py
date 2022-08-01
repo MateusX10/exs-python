@@ -1,0 +1,10 @@
+v = str(input('Digite algo: '))
+print(f'O tipo primitido de {v} é {type(v)}')
+print(f'É um número? {v.isnumeric()}')
+print(f'Só tem espaços? {v.isspace()}')
+print(f'É alfabético? {v.isalpha()}')
+print(f'É alfanumérico? {v.isalnum()}')
+print(f'Está em maiúsculas? {v.isupper()}')
+print(f'Está em minúsculas? {v.islower()}')
+print(f'Está capitalizado? {v.istitle()}')
+

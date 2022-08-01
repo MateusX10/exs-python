@@ -1,0 +1,2 @@
+# exs
+ Exercícios de Python

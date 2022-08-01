@@ -1,0 +1,26 @@
+from classes import *
+
+c1 = Cliente("Valmir", 20)
+c2 = Cliente("Gabriel", 90)
+c3 = Cliente("Juvenal", 12)
+a1 = Aluno("Xying", 33)
+a2 = Aluno("Maria", 44)
+p1 = Pessoa("Milena", 20)
+
+print(c1.nome, c1.idade)
+c1.falar()
+c1.falar()  
+c1.parar_falar()
+c1.parar_falar()
+c1.comprar("vassoura")
+c2.comprar("notebook")
+c3.comprar()
+a1.estudar("história")
+a2.estudar()
+print(c2.nome, c2.idade)
+a2.falar()
+a2.parar_falar()
+print(a1.nome, a1.idade)
+print(a2.nome, a2.idade)
+
+p1.falar()
