@@ -1,7 +1,7 @@
 from random import randint
 from time import sleep
 
-computador = randint(0,1)
+computador = randint(0,10)
 print('\033[1;33m-=' * 30)
 print("\033[1;36mJOGO DA ADIVINHAÇÃO!!!\033[m".center(60))
 print('\033[1;33m-=' * 30)
