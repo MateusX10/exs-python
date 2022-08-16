@@ -18,8 +18,8 @@ def titulo(txt, caracter=30):       #Exibe título na tela
     print("\033[1;35m-=\033[m" * caracter)
 
 def verifica():
-    ''' Verifica se a variável "sair" é True ou False, logo saindo do programa se True
-    
+    ''' ===> Verifica se a variável "sair" é True ou False, logo saindo do programa se True
+    	:return: retorna True com o objetivo de sair (break) do laço de repetição While
     '''
     if sair:
         return True
