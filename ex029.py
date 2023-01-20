@@ -1,9 +1,11 @@
-import colorama
-colorama.init()
-velocidade_carro = float(input("Velocidade do carro (em Km): "))
-multa = 7 * (velocidade_carro - 80)
+#Escreva um programa que leia a velocidade de um carro. Se ele ultrapassar 80Km/h, 
+# mostre uma mensagem dizendo que ele foi multado. A multa vai custar R$7,00 por cada
+# Km acima do limite.
+
+velocidade_carro = float(input("Qual a velocidade atual do carro? "))
+
 if velocidade_carro > 80:
-    print(f'''\033[31mVocê foi multado pois excedeu o limite permitido de 80Km/h!
-Terá de pagar uma multa de R${multa:.2f}!\n\033[33m Tenha um bom dia!Dirija com segurança!\033[m''')
+    multa = 7 * (velocidade_carro - 80) 
+    print(f"\033[1;31mVocê foi multado!\nTaxa da multa: R${multa:.2f}\033[m")
 else:
-    print("\033[33mTenha um bom dia!Dirija com segurança!\033[m")
+    print("\033[1;32mVocê está dirigindo com moderação!Continue assim e respeito as regras do trânsito!\033[m")

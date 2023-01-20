@@ -1,10 +1,12 @@
-from random import shuffle,choice
+from random import shuffle
 
 
-alunos = list()
-for aluno in range(1,5):
-    al = str(input(f'{aluno}º aluno: '))
-    alunos.append(al)
+alunos = ["Maria", "Pedro", "José", "Fernanda"]
+
 shuffle(alunos)
-print(choice(alunos))
 
+
+print(f'A ordem de apresentação será: ')
+
+for pos, aluno in enumerate(alunos):
+    print(f'{pos + 1} - {aluno}')

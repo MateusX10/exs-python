@@ -1,15 +1,11 @@
-from time import sleep
-num = int(input("Informe um número: "))
-num = str(num)
-unidade = dezena = centena = milhar = 0
-if len(num) >= 4:
-    milhar = num[-4]
-if len(num) >= 3:
-    centena = num[-3]
-if len(num) >= 2:
-    dezena = num[-2]
-if len(num) >= 1:
-    unidade =  num[-1]
-print(f'Analisando o número {num}...')
-sleep(1.3)
-print(f'Unidade: {unidade} \nDezena: {dezena} \nCentena: {centena} \nMilhar: {milhar}')
+num = str(input("Digite um número de 0 a 9999: "))
+lista_num = []
+for numero in num:
+    lista_num.append(numero)
+
+while len(lista_num) < 4:
+    lista_num.insert(0, 0)
+
+print(f'''Unidade: {lista_num[-1]} \nDezena: {lista_num[-2]} \nCentena: {lista_num[-3]}
+Milhar: {lista_num[-4]}''')
+    

@@ -1,36 +1,46 @@
-princ = []
-dado = []
-while True:
-    dado = [str(input('Nome: '))]
-    nota1 = float(input('Nota1: '))
-    nota2 = float(input('Nota2: '))
-    média = (nota1 + nota2) / 2
-    dado.append(média)
-    dado.append([nota1, nota2])
-    princ.append(dado[:])
-    dado.clear()
-    while True:
-        r = str(input('Continuar? [S/N]')).strip().upper()[0]
-        if r in "SN":
-            break
-        print(f'\033[1;31m"{r}" é um opção inválida.Digite somente "S" ou "N!\033[m')
-    if r == "N":
-        break
-print(princ)
-print('-='*30)
-print(f'{"Nº":<14}{"NOME":<10}{"MÉDIA":>6}')
-for pos, v in enumerate(princ):
-    print(f'{pos:<14}{princ[pos][0]:<10}{princ[pos][1]:>6.2f}')
+alunos = []
+aluno = []
+soma = media = cont = soma =  0
 
 while True:
-    while True:
-        escolha = int(input('Mostrar notas de qual aluno? (999 interrompe)'))
-        if len(princ) > escolha >= 0 or escolha == 999:
-            break
-    print('-=' * 30)
-    if escolha == 999:
-        print('Finalizando...')
+    continuar = False
+    r = ' '
+    aluno.append(str(input("Nome: ")))
+    aluno.append([float(input("Nota 1: ")), float(input("Nota 2: "))])
+    soma += (aluno[-1][0] + aluno[-1][-1])
+    aluno.append(soma / 2)
+    alunos.append(aluno[:])
+    aluno.clear()
+    soma = 0
+    while not continuar:
+        r = str(input("Continuar [S/N]? ")).strip().upper()[0]
+        if r in "SsNn":
+            continuar = True
+            continue
+        print("\033[1;31mOpção inválida.Por favor, considere tentar novamente.\033[m")
+    if r == "N":
         break
-    else:
-        print(f'Notas de {princ[escolha][0]} são {princ[escolha][2]}')
-print('Volte sempre ;D')
+
+
+print('-=' * 60)
+print(alunos)
+print(f"{'Nº':<2}{'nome':>7}{'média':>14}")
+print("-" * 30)
+for pos, aluno in enumerate(alunos):
+    print(f"{pos:<2}{aluno[0]:>7}{aluno[2]:>14}")
+
+print('-=' * 40)
+
+while True:
+    question = 0
+    while True:
+        question = int(input("Mostrar as notas de qual aluno? (999 interrompe): "))
+        if question < 0 or question > (len(alunos) - 1) and question != 999:
+            print("\033[1;31mOpção inválida.Por favor, tente novamente.\033[m")
+            continue
+        break
+    if question == 999:
+        break
+    print(f"Notas de {alunos[question][0]}: {alunos[question][1]}")
+
+print("\033[1;32m<<< volte sempre! >>>\033[m")

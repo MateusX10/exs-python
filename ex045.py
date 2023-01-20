@@ -1,42 +1,42 @@
-import colorama
-from random import randint
+from random import choice
 from time import sleep
 
-from pygame import QUIT
-colorama.init()
-print(f'\033[1;34m{" JOGO DO PEDRA, PAPEL E TESOURA ":=^90}\033[m')
-opc = ["PEDRA", "PAPEL", "TESOURA"]
-computador = opc[randint(0,2)]
-print('''SUAS OPÇÕES:
-[ 0 ] PEDRA
-[ 1 ] PAPEL
-[ 2 ] TESOURA
-''')
-jogador = int(input("Faça sua escolha: "))
-try:
-    jogador = opc[jogador]
-except:
-    print("\033[1;31mJOGADA INVÁLIDA!Tente novamente.")
-    quit( )
-print('\033[32mJO')
+
+def MostraMenu():
+
+    print('''Suas opções:
+    [ 1 ] - PEDRA
+    [ 2 ] - PAPEL
+    [ 3 ] - TESOURA
+    ''')
+
+
+opcs = ['pedra', 'papel', 'tesoura']
+
+computador = choice(opcs)
+
+
+MostraMenu()
+jogador = int(input("Sua jogada: ")) - 1
+jogador = opcs[jogador]
+
+
+print("\033[1;32mJO")
 sleep(1)
 print("KEN")
 sleep(1)
-print("PÔ!\033[m")
-sleep(0.3)
-print(f'Jogador joga {jogador}')
+print('PÔ!\033[m')
 sleep(1)
-print(f'Computador joga {computador}')
+
+print(f"Computador joga {computador}")
+sleep(1)
+print(f"Jogador joga {jogador}")
 sleep(1)
 if jogador == computador:
-    print("\033[33mEMPATE!\033[m")
-else:
-    print(jogador, computador)
-    if jogador == "PEDRA" and computador == "PAPEL" or jogador == "PAPEL" and computador == "TESOURA":
-        print("\033[1;31mCOMPUTADOR VENCE!")
-    elif jogador == "TESOURA" and computador == "PEDRA":
-        print("\033[1;31mCOMPUTADOR VENCE!")
-    elif jogador == "PEDRA" and computador == "TESOURA" or jogador == "PAPEL" and computador == "PEDRA":
-        print("\033[1;32mJogador vence!")
-    elif jogador == "TESOURA" and computador == "PAPEL":
-        print(f'\033[1;32mJOGADOR VENCE!')
+    print("\033[1;33mEMPATE!\033[m")
+ 
+elif jogador == "pedra" and computador == "tesoura" or jogador == "tesoura" and computador == "papel" or jogador == "papel" and computador == "pedra":
+    print("\033[1;32mVocê venceu!\033[m")
+
+elif computador == "pedra" and jogador == "tesoura" or computador == "tesoura" and jogador == "papel" or computador == "papel" and jogador == "pedra":
+    print("\033[1;31mVocê perdeu!\033[m")

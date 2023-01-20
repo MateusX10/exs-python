@@ -1,7 +1,6 @@
-import colorama
-colorama.init()
-num = int(input("Digite um número qualquer: "))
-if num % 2 == 0:
-    print(f'O número {num} é \033[34mpar!\033[m')
+numero = int(input("Digite um número: "))
+
+if numero % 2 == 0:
+    print(f'\033[1;32m{numero} é um número PAR!\033[m')
 else:
-    print(f'O número {num} é \033[34mímpar!\033[m')
+    print(f"\033[1;31m{numero} é um número ÍMPAR!\033[m")
