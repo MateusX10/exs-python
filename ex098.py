@@ -1,31 +1,32 @@
-from time import sleep
+from time import sleep, time
 
-def line():
-    print('-=' * 30)
-def contador(ini, fim, passo):
-    if passo == 0:
-        passo = 1
-    elif passo < 0:
-        passo *= -1
-    print(f'Contagem de {ini} até {fim} pulando de {passo} em {passo}')
-    cont = ini
-    if ini < fim:
-        while cont <= fim:
-            print(f'{cont} ', end='', flush=True)
-            sleep(0.3)
-            cont += passo
+
+def counter(beginning,ends, increment):
+    print('-=' * 40)
+    
+    print(f"Count from {beginning} to {ends} skipping from {increment} to {increment}")
+    if beginning < ends:
+        if increment < 0:
+            increment = abs(increment)
+        for number in range(beginning, ends + 1, increment):
+            print(f"{number} ", end='', flush=True)
+            sleep(0.5)
     else:
-        while cont >= fim:
-            print(f'{cont} ', end='', flush=True)
-            sleep(0.3)
-            cont -= passo
-    print('FIM')
+        if increment > 0:
+            increment = (increment * (-1))
+        for number in range(beginning, ends - 1, increment):
+            print(f"{number} ", end='', flush=True)
+            sleep(0.5)
+    print("end")    
+    
 
+counter(1,10, 1)
+counter(10,0,2)
+print(f"Now it's your turn to customize yout count!")
+beginning = int(input("Beginning: "))
+ends = int(input("End: "))
+increment = int(input("Increment: "))
+if increment == 0:
+    increment = 1
+counter(beginning, ends, increment)
 
-contador(1, 10, 1)
-contador(10, 0, 2)
-print('Agora é a sua vez de personalizar a sua contagem!')
-i = int(input('Início: '))
-f = int(input('Fim: '))
-p = int(input('Passo: '))
-contador(i, f, p)
