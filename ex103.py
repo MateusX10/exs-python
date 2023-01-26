@@ -1,16 +1,36 @@
-def line():
-    print('-=' * 30)
-def ficha(jogador='<desconhecido>', gols=0):
-    print(f'Jogador {jogador} fez {gols} gols no campeonato')
+def ficha(NomeJogador="<desconhecido", gols=0):
+    if len(NomeJogador) == 0:
+        NomeJogador = "<desconhecido>"
+    print(f"O jogador {NomeJogador} fez {gols} gols no campeonato")
 
 
-nome = str(input('Nome do jogador: ')).strip()
-gol = str(input('Número de gols: '))
-if not gol.isnumeric():
-    gol = 0
+numero_gols = 0
+nome = str(input("Nome do jogador: "))
+try:
+    numero_gols = int(input("Quantos gol(s)? "))
+except:
+    if type(numero_gols) is not int:
+        numero_gols = 0
+
+
+ficha(nome, numero_gols)
+
+
+'''def ficha(NomeJogador="<desconhecido>", gol=0):
+    print(f"O jogador {NomeJogador} fez {gol} gols no campeonato")
+ 
+
+
+nome = str(input("Nome do jogador: "))
+gols = str(input("Número de gols: "))
+
+if gols.isnumeric():
+    gols = int(gols)
+
 else:
-    gol = int(gol)
-if nome == '':
-    ficha(gols=gol)
+    gols = 0
+
+if nome.strip() == '':
+    ficha(gol=gols)
 else:
-    ficha(nome, gol)
+    ficha(nome, gols)'''
