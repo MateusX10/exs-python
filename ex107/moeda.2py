@@ -1,0 +1,15 @@
+def Aumentar(p, percentual=10):
+    resultado =  (p + (p * percentual / 100))
+    return resultado
+
+def Diminuir(p, percentual=10):
+    resultado = (p - (p * percentual / 100))
+    return resultado
+
+def Dobro(p):
+    resultado = (p * 2)
+    return resultado
+
+def Metade(p):
+    resultado  = (p / 2)
+    return resultado
