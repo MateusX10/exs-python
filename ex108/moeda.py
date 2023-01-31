@@ -1,22 +1,20 @@
-def metade(p):
-    res = p / 2
-    return res
+def Aumentar(p, percentual=10):
+    resultado =  (p + (p * percentual / 100))
+    return resultado
+
+def Diminuir(p, percentual=10):
+    resultado = (p - (p * percentual / 100))
+    return resultado
+
+def Dobro(p):
+    resultado = (p * 2)
+    return resultado
+
+def Metade(p):
+    resultado  = (p / 2)
+    return resultado
 
 
-def dobro(p):
-    res = p * 2
-    return res
-
-
-def aumento(p, percentual=10):
-    res = p + (p * percentual / 100)
-    return res
-
-def diminuir(p, percentual=10):
-    res = p - (p * percentual / 100)
-    return res
-
-
-def moedaa(p, simb='R$'):
-    res = f'{simb}{p:.2f}'.replace(".", ",")
-    return res
+def moedas(p):
+    resultado = f"R${p:.2f}".replace(".", ",")
+    return resultado
