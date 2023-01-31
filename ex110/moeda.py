@@ -1,43 +1,75 @@
-def lin():
-    print('~' * 60)
+def line(tam=60):
+    print(tam * '-')
+
+
 def title(msg, tam=60):
-    print('~' * tam)
+    print('-' * tam)
     print(msg.center(tam))
-    print('~' * tam)
-def metade(p, formatado=True):
-    res = p / 2
-    return moedaa(res) if formatado else res
+    print('-' * tam)
+
+def Aumentar(p, percentual=10, formata=True):
+    ''' --> Retorna o percentual de aumento de um produto
+    :param p: preço a ser calculado o percentual
+    :param percentual: percentual a ser acrescentado no produto
+    :param formata: formatar ou não o resultado
+    :return: retorna o resultado em percentual (formatado ou não)
+    '''
+    resultado =  (p + (p * percentual / 100))
+    return moedas(resultado) if formata else resultado
+    
+
+def Diminuir(p, percentual=10, formata=True):
+    ''' --> Retorna o percentual de redução do produto
+    :param p: preço a ser calculado o percentual
+    :param percentual: percentual a diminuir do produto
+    :param formata: formatar ou não o resultado
+    :return: retorna o resultado em percentual (formatado ou não)
+    '''
+    resultado = (p - (p * percentual / 100))
+    return moedas(resultado) if formata else resultado
+
+def Dobro(p, formata=True):
+    ''' --> Retorna o dobro do valor do produto
+    :param p: preço do produto
+    :param formata: formatar ou não o resultado
+    '''
+    resultado = (p * 2)
+    return moedas(resultado) if  formata else resultado
+
+def Metade(p, formata=True):
+    ''' --> Retorna a metade do valor do produto
+    :param p: preço do produto a ser calculado
+    :param formata: formatar ou não o resultado final
+    '''
+    resultado  = (p / 2)
+    return moedas(resultado) if formata else resultado
 
 
-def dobro(p, formatado=True):
-    res = p * 2
-    return moedaa(res) if formatado else res
+def moedas(p, formata=True):
+    ''' --> Formata um valor em moeda brasileira
+    :param p: preço a ser formatado
+    :param formata: formatar ou não o preço do produto
+    '''
+    if formata:
+        resultado = f"R${p:.2f}".replace(".", ",")
+    else:
+        resultado = p
+    return resultado
 
 
-def aumento(p, percentual=10, formatado=True):
-    ''' ==> Retorna o aumento de 10% de um preço
-        :param p: preco a ser calculado
-        :param percentual: porcentagem de aumento
-        :param formatado: se o preço vai ou não ser formatado pela função moeda
-        :return: retorna o preço formatado ou não a depender da escolha
-'''
-    res = p + (p * percentual / 100)
-    return moedaa(res) if formatado == True else res
+def resumo(value, aumento, reducao):
+    '''--> Retorna o resumo do valor
+    :param value: preço a ser mostrado
+    :param aumento: percentual de aumento do produto
+    :param reducao: percentual de redução do produto
 
-def diminuir(p, percentual=10, formatado=True):
-    res = p - (p * percentual / 100)
-    return moedaa(res) if formatado is True else res
+    '''
+    title("RESUMO DO VALOR", 40)
 
-
-def moedaa(p, simb='R$'):
-    res = f'{simb}{p:.2f}'.replace(".", ",")
-    return res
-
-def resumo(p=0, taxaa=10, taxar=10):
-    title("RESUMO DO VALOR")
-    print(f'''Preço analisado: \t\t{moedaa(p)}
-Dobro do preço: \t\t{dobro(p, True)}
-Metade do preço: \t\t{metade(p)}
-Aumento de {taxaa}%: \t\t{aumento(p, taxaa, True)}
-Redução de {taxar}%: \t\t{diminuir(p, taxar, True)}''')
-    lin()
+    print(f'''Preço analisado: \t{moedas(value)}
+Dobro do preço: \t{Dobro(value)}
+Metade do preço: \t{Metade(value)}
+{aumento}% de aumento: \t{Aumentar(value, 10)}
+{reducao}% de redução: \t{Diminuir(value, 12)}  
+            ''')
+    line(40)
