@@ -1,30 +1,48 @@
-def metade(p, formatado=True):
-    res = p / 2
-    return moedaa(res) if formatado else res
+def Aumentar(p, percentual=10, formata=True):
+    ''' --> Retorna o percentual de aumento de um produto
+    :param p: preço a ser calculado o percentual
+    :param percentual: percentual a ser acrescentado no produto
+    :param formata: formatar ou não o resultado
+    :return: retorna o resultado em percentual (formatado ou não)
+    '''
+    resultado =  (p + (p * percentual / 100))
+    return moedas(resultado) if formata else resultado
+    
+
+def Diminuir(p, percentual=10, formata=True):
+    ''' --> Retorna o percentual de redução do produto
+    :param p: preço a ser calculado o percentual
+    :param percentual: percentual a diminuir do produto
+    :param formata: formatar ou não o resultado
+    :return: retorna o resultado em percentual (formatado ou não)
+    '''
+    resultado = (p - (p * percentual / 100))
+    return moedas(resultado) if formata else resultado
+
+def Dobro(p, formata=True):
+    ''' --> Retorna o dobro do valor do produto
+    :param p: preço do produto
+    :param formata: formatar ou não o resultado
+    '''
+    resultado = (p * 2)
+    return moedas(resultado) if  formata else resultado
+
+def Metade(p, formata=True):
+    ''' --> Retorna a metade do valor do produto
+    :param p: preço do produto a ser calculado
+    :param formata: formatar ou não o resultado final
+    '''
+    resultado  = (p / 2)
+    return moedas(resultado) if formata else resultado
 
 
-def dobro(p, formatado=True):
-    res = p * 2
-    return moedaa(res) if formatado else res
-
-
-def aumento(p, percentual=10, formatado=True):
-    ''' ==> Retorna o aumento de 10% de um preço
-        :param p: preco a ser calculado
-        :param percentual: porcentagem de aumento
-        :param formatado: se o preço vai ou não ser formatado pela função moeda
-        :return: retorna o preço formatado ou não a depender da escolha
-'''
-    res = p + (p * percentual / 100)
-    return moedaa(res) if formatado == True else res
-
-def diminuir(p, percentual=10, formatado=True):
-    res = p - (p * percentual / 100)
-    return res if formatado is True else res
-
-
-def moedaa(p, simb='R$'):
-    res = f'{simb}{p:.2f}'.replace(".", ",")
-    return res
-
-help(aumento)
+def moedas(p, formata=True):
+    ''' --> Formata um valor em moeda brasileira
+    :param p: preço a ser formatado
+    :param formata: formatar ou não o preço do produto
+    '''
+    if formata:
+        resultado = f"R${p:.2f}".replace(".", ",")
+    else:
+        resultado = p
+    return resultado

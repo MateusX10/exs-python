@@ -1,9 +1,20 @@
 from moeda import *
 
 
-p = float(input('Preço: R$'))
-print(f'O dobro de {moedaa(p)} é {dobro(p, False)}')
-print(f'A metade de {moedaa(p)} é {metade(p)}')
-print(f'Aumentando em 10%, temos {aumento(p, 10)}')
-print(f'Diminuindo em 10%, temos {diminuir(p, 10)}')
 
+preco = 0
+
+
+preco = str(input("Preço: R$ ")).replace(",", ".")
+preco = float(preco)
+
+print(f"Aumentando 10% de {moedas(preco)}, temos {Aumentar(preco)}")
+print(f"Diminuindo 30% de {moedas(preco)}, temos {Diminuir(preco, 30)}")
+print(f"O dobro de {moedas(preco)} vale {Dobro(preco)}")
+print(f"A metade de {moedas(preco)} vale {Metade(preco)}")
+
+help(Aumentar)
+help(Diminuir)
+help(Dobro)
+help(Metade)
+help(moedas)
