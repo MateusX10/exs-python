@@ -1,6 +1,9 @@
-from numeros import *
+from numeros import leiaInt, leiaFloat
+
+numero_inteiro = leiaInt("Digite um número INTEIRO: ")
+numero_flutuante = leiaFloat("Agora, digite um número de PONTO FLUTUANTE: ")
+print(f"Você digitou o número inteiro {numero_inteiro}")
+print(f"Você digitou o número de ponto flutuante {numero_flutuante}")
 
 
-inteiro = leiaInt("Digite um inteiro: ")
-real = leiaFloat("Digite um real: ")
-print(f'O valor do inteiro digitado foi {inteiro} e do real {real}')
+
