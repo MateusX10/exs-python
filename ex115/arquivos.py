@@ -1,3 +1,7 @@
+from strings import title
+
+
+
 def CriaArquivo(nome_arquivo):
     try:
         arquivo = open(nome_arquivo, "a+")
@@ -40,9 +44,12 @@ def EscreverArquivo(nome_arquivo):
     else:
         nome = str(input("Nome: ")).strip().capitalize()
         idade = int(input("Idade: "))
-        arquivo.write(f"{nome};{idade} anos\n")
-        print('\n')
-
+        try:
+            arquivo.write(f"{nome};{idade} anos\n")
+        except:
+            print("\033[1;31mOcorreu um erro ao escrever no arquivo...\033[m")
+        else:
+            title(f"\033[1;32mNovo cadastro de {nome} efetivado com sucesso!\033[m")
     finally:
         arquivo.close()
 

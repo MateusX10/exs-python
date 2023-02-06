@@ -3,8 +3,6 @@ from arquivos import *
 import os
 from time import sleep
 
-
-
 if not os.path.isfile("arquivo.txt"):
     CriaArquivo("arquivo.txt")
 
@@ -22,7 +20,7 @@ while True:
     elif resposta == 2:
         title("\033[1;32mNovo Cadastro\033[m")
         EscreverArquivo("arquivo.txt")
-
+        sleep(1.5)
     elif resposta == 3:
         print("Saindo do sistema...")
         sleep(1)
