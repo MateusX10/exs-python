@@ -73,8 +73,8 @@ def RemoveItensDaFila(fila):
                 print("\033[1;33mFila vazia\033[m")
                 return False
         else:
-            cache = fila[-1]
-            fila.pop()
+            cache = fila[0]
+            fila.pop(0)
             print(f"\033[1;32mItem {cache} removido com sucesso\033[m")
             return True
             
