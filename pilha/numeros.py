@@ -27,6 +27,8 @@ def leiaInt(msg):
     :return: retorna a escolha do usuário
     '''
     EscolhaUsuario = 0
+
+    # Faz a validação da escolha do usuário
     while True:
         try:
             EscolhaUsuario = int(input(msg))
@@ -36,17 +38,24 @@ def leiaInt(msg):
         except (KeyboardInterrupt):
             print("\n\033[1;31mPara sair, selecione '5' no menu de opções.\033[m")
         else:
-            return EscolhaUsuario
+            if 0 < EscolhaUsuario < 6:
+                return EscolhaUsuario
 
 
 def leiaPilha():
+    '''==> Define a capacidade da pilha
+    :return: retornna a capacidade da pilha
+    '''
     EscolhaUsuario = 0
     while True:
+        # Tenta definir a capacidade da pilha
         try:
             EscolhaUsuario = int(input("Capacidade da pilha: "))
+        # Usuário informou dados incorretos
         except (ValueError, TypeError):
             print("\n\033[1;31mTivemos um problema com o tipo de dados que você informou.\033[m")
 
+        # Usuário tentou forçar a parada do programa
         except (KeyboardInterrupt):
             print("\n\033[1;31mPara sair, escolha o tamanho da pilha e selecione '5' no menu de opções\033[m")
         else:
